@@ -116,12 +116,17 @@ uvicorn main:app --reload
 
 ## Screenshots
 
-*(Add screenshots of your app here)*
+* **Login Page**  
+  ![Login Page](Images/img1.png)
 
-* Login Page
-  [Alt text](/"C:\Users\Asus\Documents\FullStackApp\Images\img1.png".jpg?raw=true "Img1")
-* Dashboard / Todo List
-* Add / Edit Todo
+* **Dashboard / Todo List**  
+  ![Dashboard](Images/img2.png)
+
+* **Add Todo**  
+  ![Add Todo](Images/img3.png)
+
+* **Edit Todo**  
+  ![Edit Todo](Images/img4.png)
 
 ---
 
