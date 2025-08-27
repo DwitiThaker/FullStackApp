@@ -1,0 +1,107 @@
+sqlite> insert into todos (id);
+Parse error: near ";": syntax error
+  insert into todos (id);
+                        ^--- error here
+sqlite> insert into todos (title, description, priority, complete) values ('Go to th
+e store', 'Pick up eggs', 5, False)
+   ...> ;
+sqlite> select * from todos;
+1|Go to the store|Pick up eggs|5|0
+sqlite> insert into todos (title, description, priority, complete) values ('Cut the lawn', 'Grass is getting long', 3, False)
+   ...> ;
+sqlite> select * from todos
+   ...> ;
+1|Go to the store|Pick up eggs|5|0
+2|Cut the lawn|Grass is getting long|3|0
+sqlite> insert into todos (title, description, priority, complete) values ('Feed the dog', 'He is', 3, False)                
+   ...> 
+   ...> ;
+sqlite> select * from todos;
+1|Go to the store|Pick up eggs|5|0
+2|Cut the lawn|Grass is getting long|3|0
+3|Feed the dog|He is|3|0
+sqlite> .mode column
+sqlite> select * from todos
+   ...> ;
+id  title            description            priority  complete
+--  ---------------  ---------------------  --------  --------
+1   Go to the store  Pick up eggs           5         0
+2   Cut the lawn     Grass is getting long  3         0
+3   Feed the dog     He is                  3         0
+sqlite> .mode markdown 
+sqlite> select * from todos
+   ...> ;
+| id |      title      |      description      | priority | complete |
+|----|-----------------|-----------------------|----------|----------|
+| 1  | Go to the store | Pick up eggs          | 5        | 0        |
+| 2  | Cut the lawn    | Grass is getting long | 3        | 0        |
+| 3  | Feed the dog    | He is                 | 3        | 0        |
+sqlite> .mode box     
+sqlite> select * from todos
+   ...> ;
+┌────┬─────────────────┬───────────────────────┬──────────┬──────────┐
+│ id │      title      │      description      │ priority │ complete │
+├────┼─────────────────┼───────────────────────┼──────────┼──────────┤
+│ 1  │ Go to the store │ Pick up eggs          │ 5        │ 0        │
+│ 2  │ Cut the lawn    │ Grass is getting long │ 3        │ 0        │
+│ 3  │ Feed the dog    │ He is                 │ 3        │ 0        │
+└────┴─────────────────┴───────────────────────┴──────────┴──────────┘
+sqlite> .mode from table
+Error: mode should be one of: ascii box column csv html insert json line list markdown qbox quote table tabs tcl
+sqlite> .mode table 
+sqlite> select * from todos
+   ...> ;
++----+-----------------+-----------------------+----------+----------+
+| id |      title      |      description      | priority | complete |
++----+-----------------+-----------------------+----------+----------+
+| 1  | Go to the store | Pick up eggs          | 5        | 0        |
+| 2  | Cut the lawn    | Grass is getting long | 3        | 0        |
+| 3  | Feed the dog    | He is                 | 3        | 0        |
++----+-----------------+-----------------------+----------+----------+
+sqlite> insert into todos (title, description, priority, complete) values ('Test Element', 'He is', 3, False)
+   ...> select * from todos;
+Parse error: near "select": syntax error
+  plete) values ('Test Element', 'He is', 3, False) select * from todos;
+                                      error here ---^
+sqlite> select * from todos;
++----+-----------------+-----------------------+----------+----------+
+| id |      title      |      description      | priority | complete |
++----+-----------------+-----------------------+----------+----------+
+| 1  | Go to the store | Pick up eggs          | 5        | 0        |
+| 2  | Cut the lawn    | Grass is getting long | 3        | 0        |
+| 3  | Feed the dog    | He is                 | 3        | 0        |
++----+-----------------+-----------------------+----------+----------+
+sqlite> insert into todos (title, description, priority, complete) values ('Test Element', 'He is', 3, False)
+   ...> ;
+sqlite> select * from todos
+   ...> ;
++----+-----------------+-----------------------+----------+----------+
+| id |      title      |      description      | priority | complete |
++----+-----------------+-----------------------+----------+----------+
+| 1  | Go to the store | Pick up eggs          | 5        | 0        |
+| 2  | Cut the lawn    | Grass is getting long | 3        | 0        |
+| 3  | Feed the dog    | He is                 | 3        | 0        |
+| 4  | Test Element    | He is                 | 3        | 0        |
++----+-----------------+-----------------------+----------+----------+
+sqlite> delete from todos WHERE id=4;
+sqlite> select * from todos;
++----+-----------------+-----------------------+----------+----------+
+| id |      title      |      description      | priority | complete |
++----+-----------------+-----------------------+----------+----------+
+| 1  | Go to the store | Pick up eggs          | 5        | 0        |
+| 2  | Cut the lawn    | Grass is getting long | 3        | 0        |
+| 3  | Feed the dog    | He is                 | 3        | 0        |
++----+-----------------+-----------------------+----------+----------+
+sqlite> insert into todos (title, description, priority, complete) values ('A new Te
+st Element', 'He is', 3, False)
+   ...> ;
+sqlite> select * from todos;
++----+--------------------+-----------------------+----------+----------+
+| id |       title        |      description      | priority | complete |
++----+--------------------+-----------------------+----------+----------+
+| 1  | Go to the store    | Pick up eggs          | 5        | 0        |
+| 2  | Cut the lawn       | Grass is getting long | 3        | 0        |
+| 3  | Feed the dog       | He is                 | 3        | 0        |
+| 4  | A new Test Element | He is                 | 3        | 0        |
++----+--------------------+-----------------------+----------+----------+
+sqlite>
