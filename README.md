@@ -119,7 +119,7 @@ uvicorn main:app --reload
 * **Login Page**  
   ![Login Page](Images/img1.png)
 
-* **Dashboard / Todo List**  
+* **Register Page**  
   ![Dashboard](Images/img2.png)
 
 * **Add Todo**  
