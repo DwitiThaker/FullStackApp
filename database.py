@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 
-SQLALCHEMY_DATABASE_URL =  'sqlite:///./todosapp.db'
+SQLALCHEMY_DATABASE_URL =  'postgresql://avnadmin:AVNS_QcWMckaeXcdgOtEcnZu@pg-a14c7da-dwiti-d28a.d.aivencloud.com:15666/defaultdb?sslmode=require'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
