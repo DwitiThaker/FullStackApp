@@ -28,7 +28,7 @@ print(secrets.token_hex(32))
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-please-change")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
 
-bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
+bcrypt_context = CryptContext(schemes=['bcrbcrypt_sha256', 'bcryptypt'], deprecated='auto')
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl='auth/token')
 
 
