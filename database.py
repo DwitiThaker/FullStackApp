@@ -3,10 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 
-# Load environment variables from a .env file (if present)
 load_dotenv()
 
-# Get the DB URL from an environment variable instead of hardcoding it
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not SQLALCHEMY_DATABASE_URL:

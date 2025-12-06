@@ -4,12 +4,18 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
-from database import SessionLocal  # Change this to match your import
-from models import Users  # Change this to match your import
+from database import SessionLocal  
+from models import Users  
 from passlib.context import CryptContext   # type: ignore
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from jose import jwt, JWTError   # type: ignore
 from fastapi.templating import Jinja2Templates
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 
 router = APIRouter(
     prefix='/auth',
@@ -19,8 +25,8 @@ router = APIRouter(
 import secrets
 print(secrets.token_hex(32))
 
-SECRET_KEY = '8ac78a897a66a9856270939375e4ac99559ce9dc454affbb343ffafd282d9e19'  # Your secret key
-ALGORITHM = 'HS256'
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-please-change")
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 oauth2_bearer = OAuth2PasswordBearer(tokenUrl='auth/token')
